@@ -11,7 +11,7 @@ public class Main {
         Date date = new Date();
         System.out.println("English format: " + format.format(date));
 
-        format = new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH);
+        format = new SimpleDateFormat("HH:mm dd.MM.yyyy");
         date = new Date();
         System.out.println("Russian format: " + format.format(date));
     }
