@@ -9,9 +9,9 @@ public class RoadCamera
     public static void main(String[] args) throws IOException
     {
         //Параметры программы
-        int maxOncomingSpeed = 30 + 30; // km/h
+        int maxOncomingSpeed = 60; // km/h
         int speedFineGrade = 20; // km/h
-        int finePerGrade = 500 * 2; // RUB
+        int finePerGrade = 1000; // RUB
         int criminalSpeed = 180; // km/h
 
         //=============================================================
@@ -27,7 +27,7 @@ public class RoadCamera
         else if(oncomingSpeed > maxOncomingSpeed)
         {
             int overSpeed = oncomingSpeed - maxOncomingSpeed;
-            int gradesCount = overSpeed / speedFineGrade;
+            int gradesCount = overSpeed / speedFineGrade + 1;
             int fine = finePerGrade * gradesCount;
             System.out.println("Сумма штрафа: " + fine);
         }
