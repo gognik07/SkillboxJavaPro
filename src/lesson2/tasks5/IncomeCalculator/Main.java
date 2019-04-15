@@ -23,7 +23,7 @@ public class Main
     {
         while(true)
         {
-            System.out.println("Минимальный доход, чтобы компания могла инвестировать: " + calculateMinIncome() + "\n");
+            System.out.println("Минимальный доход, чтобы компания могла инвестировать: " + calculateMinIncome2() + "\n");
             System.out.println("Введите сумму доходов компании за месяц " +
                 "(от 200 до 900 тысяч рублей): ");
             int income = (new Scanner(System.in)).nextInt();
@@ -65,6 +65,10 @@ public class Main
             }
         }
         return 0;
+    }
+
+    private static double calculateMinIncome2() {
+        return  (minInvestmentsAmount + calculateFixedCharges() - mainTaxPercent * calculateFixedCharges()) / (1 - managerPercent - mainTaxPercent + mainTaxPercent * managerPercent);
     }
 
     private static boolean checkIncomeRange(int income)
