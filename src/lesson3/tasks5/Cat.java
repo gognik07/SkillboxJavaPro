@@ -13,20 +13,16 @@ public class Cat
     private double minWeight;
     private double maxWeight;
 
-    private static int count;
+    private static int count = 0;
 
     public Cat()
     {
-        weight = 1500.0 + 3000.0 * Math.random();
-        originWeight = weight;
-        minWeight = MIN_WEIGHT;
-        maxWeight = MAX_WEIGHT;
-        weightEatenFood = 0;
-        count++;
+        this(1500.0 + 3000.0 * Math.random());
     }
 
     public Cat(double weight) {
         this.weight = weight;
+        originWeight = weight;
         minWeight = MIN_WEIGHT;
         maxWeight = MAX_WEIGHT;
         weightEatenFood = 0;
