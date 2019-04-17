@@ -14,19 +14,15 @@ public class Cat {
 
     private ColoringCat coloringCat;
 
-    private static int count;
+    private static int count = 0;
 
     public Cat() {
-        weight = 1500.0 + 3000.0 * Math.random();
-        originWeight = weight;
-        minWeight = MIN_WEIGHT;
-        maxWeight = MAX_WEIGHT;
-        weightEatenFood = 0;
-        count++;
+        this(1500.0 + 3000.0 * Math.random());
     }
 
     public Cat(double weight) {
         this.weight = weight;
+        originWeight = weight;
         minWeight = MIN_WEIGHT;
         maxWeight = MAX_WEIGHT;
         weightEatenFood = 0;
@@ -147,8 +143,10 @@ public class Cat {
      */
     public Cat deepCopying() {
         Cat cat = new Cat();
-        cat.setColoringCat(this.coloringCat);
-        cat.setWeight(this.getWeight());
+        cat.coloringCat = this.coloringCat;
+        cat.weight = this.getWeight();
+        cat.originWeight = this.originWeight;
+        cat.weightEatenFood = this.weightEatenFood;
         return cat;
     }
 }
