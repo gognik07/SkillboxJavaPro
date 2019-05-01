@@ -14,36 +14,42 @@ public class Main {
             System.out.println("Введите команду");
             String command = scanner.nextLine();
 
-            if (command.toUpperCase().equals("EXIT")) {
+            if (command.length() >= Commands.EXIT.getName().length() && command.toUpperCase().equals(Commands.EXIT.getName())) {
                 System.out.println("ПОКА!!!");
                 return;
             }
 
-            if (command.toUpperCase().equals("LIST")) {
+            if (command.length() >= Commands.HELP.getName().length() && command.toUpperCase().equals(Commands.HELP.getName())) {
+                Commands.printListCommand();
+                System.out.println();
+                continue;
+            }
+
+            if (command.length() >= Commands.LIST.getName().length() && command.toUpperCase().equals(Commands.LIST.getName())) {
                 printList(todoList);
                 System.out.println();
                 continue;
             }
 
-            if (command.toUpperCase().substring(0, 4).equals("ADD ")) {
+            if (command.length() >= Commands.ADD.getName().length() && command.toUpperCase().substring(0, Commands.ADD.getName().length()).equals(Commands.ADD.getName())) {
                 addBusiness(todoList, command);
                 System.out.println();
                 continue;
             }
 
-            if (command.toUpperCase().substring(0, 5).equals("EDIT ")) {
+            if (command.length() >= Commands.EDIT.getName().length() && command.toUpperCase().substring(0, Commands.EDIT.getName().length()).equals(Commands.EDIT.getName())) {
                 editBusiness(todoList, command);
                 System.out.println();
                 continue;
             }
 
-            if (command.toUpperCase().substring(0, 7).equals("DELETE ")) {
+            if (command.length() >= Commands.DELETE.getName().length() && command.toUpperCase().substring(0, Commands.DELETE.getName().length()).equals(Commands.DELETE.getName())) {
                 deleteBusiness(todoList, command);
                 System.out.println();
                 continue;
             }
 
-            System.out.println("Некорректная команда");
+            System.out.println("Некорректная команда. Введите команду \"HELP\" для получения справки");
             System.out.println();
         }
     }
@@ -118,7 +124,10 @@ public class Main {
                 ? command.substring(4 + Integer.toString(numberBusiness).length()).trim()
                 : command.substring(4).trim();
 
-        todoList.add(numberBusiness >= 0 ? numberBusiness : 0, business);
+        todoList.add(numberBusiness >= 0
+                ? numberBusiness
+                : todoList.size()
+                , business);
     }
 
     /**

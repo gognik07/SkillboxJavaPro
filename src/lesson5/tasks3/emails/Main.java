@@ -14,20 +14,26 @@ public class Main {
             System.out.println("Введите команду:");
             String command = scanner.nextLine();
 
-            if (command.toUpperCase().equals("EXIT")) {
+            if (command.length() >= Commands.EXIT.getName().length() && command.toUpperCase().equals(Commands.EXIT.getName())) {
                 System.out.println("ПОКА!!!");
                 return;
             }
 
-            if (command.toUpperCase().equals("LIST")) {
+            if (command.length() >= Commands.HELP.getName().length() && command.toUpperCase().equals(Commands.HELP.getName())) {
+                Commands.printListCommand();
+                System.out.println();
+                continue;
+            }
+
+            if (command.length() >= Commands.LIST.getName().length() && command.toUpperCase().equals(Commands.LIST.getName())) {
                 printSet(emails);
                 System.out.println();
                 continue;
             }
 
-            if (command.toUpperCase().substring(0, 4).equals("ADD ")) {
+            if (command.length() >= Commands.ADD.getName().length() && command.toUpperCase().substring(0, 4).equals(Commands.ADD.getName())) {
                 if (command.split("\\s").length != 2) {
-                    System.out.println("Некорректная команда");
+                    System.out.println("Некорректная команда. Введите команду \"HELP\" для получения справки");
                     System.out.println();
                     continue;
                 }
