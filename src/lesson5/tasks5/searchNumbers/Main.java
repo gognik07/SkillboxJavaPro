@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<String> list = createListNumbers();
+        Collections.sort(list);
 
         Set<String> hashSet = new HashSet<>();
         hashSet.addAll(list);
@@ -26,20 +27,27 @@ public class Main {
             }
 
             start = System.currentTimeMillis();
-            list.contains(command);
-            System.out.println("Прямой перебор: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println("Прямой перебор");
+            System.out.println(list.contains(command) ? "Номер найден" : "Номер не найден");
+            System.out.println("Время: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println();
 
             start = System.currentTimeMillis();
-            Collections.binarySearch(list ,command);
-            System.out.println("Бинарный поиск: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println("Бинарный поиск");
+            System.out.println(Collections.binarySearch(list ,command) >= 0 ? "Номер найден" : "Номер не найден");
+            System.out.println("Время: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println();
 
             start = System.currentTimeMillis();
-            hashSet.contains(command);
-            System.out.println("HashSet: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println("HashSet");
+            System.out.println(hashSet.contains(command) ? "Номер найден" : "Номер не найден");
+            System.out.println("Время: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println();
 
             start = System.currentTimeMillis();
-            treeSet.contains(command);
-            System.out.println("TreeSet: " + (System.currentTimeMillis() - start) + " мс");
+            System.out.println("TreeSet");
+            System.out.println(treeSet.contains(command) ? "Номер найден" : "Номер не найден");
+            System.out.println("Время: " + (System.currentTimeMillis() - start) + " мс");
         }
 
         System.out.println();
