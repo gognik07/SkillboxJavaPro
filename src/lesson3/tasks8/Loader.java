@@ -18,19 +18,19 @@ public class Loader {
         for (Terminal terminal: airport.getTerminals()) {
 
             System.out.println("Прибывшие самолёты в терминале " + countTerminal + ":");
-            for (Aircraft aircraft : terminal.getArrivalAircrafts()) {
+            for (Aircraft aircraft : terminal.getParkedAircrafts()) {
                 System.out.println(aircraft.getModel());
             }
             System.out.println();
 
             System.out.println("Вылетевшие самолёты в терминале " + countTerminal + "");
-            for (Aircraft aircraft : terminal.getDepartureAircrafts()) {
+            for (Aircraft aircraft : terminal.getParkedAircrafts()) {
                 System.out.println(aircraft.getModel());
             }
             System.out.println();
 
             System.out.println("Припаркованные самолёты в терминале " + countTerminal + "");
-            for (Aircraft aircraft : terminal.getParkingAircrafts()) {
+            for (Aircraft aircraft : terminal.getParkedAircrafts()) {
                 System.out.println(aircraft.getModel());
             }
             System.out.println();
