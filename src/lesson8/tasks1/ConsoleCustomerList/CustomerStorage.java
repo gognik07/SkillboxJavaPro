@@ -17,12 +17,12 @@ public class CustomerStorage {
         String name = components[0] + " " + components[1];
         String phone = components[3];
         if (!isValidPhone(phone)) {
-            throw new InvalidPhoneException();
+            throw new InvalidPhoneException("Невалидный номер телефона");
         }
 
         String email = components[2];
         if (!isValidEmail(email)) {
-            throw new InvalidEmailException();
+            throw new InvalidEmailException("Невалидный email");
         }
 
         storage.put(name, new Customer(name, components[3], components[2]));

@@ -37,12 +37,8 @@ public class Main
                 } else {
                     System.out.println(commandError);
                 }
-            } catch (InvalidPhoneException e) {
-                System.out.println("Невалидный номер телефона");
-            } catch (InvalidEmailException e) {
-                System.out.println("Невалидный email");
             } catch (Exception e) {
-                System.out.println("Неверный формат команды");
+                System.out.println(e.getMessage());
             }
         }
     }
